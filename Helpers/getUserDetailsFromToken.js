@@ -13,7 +13,7 @@ const getUserDetailsFromToken = async ( token ) => {
         else{
             return {
                 message : "session out !" ,
-                error : true ,
+                logout : true ,
             }
         }
 
