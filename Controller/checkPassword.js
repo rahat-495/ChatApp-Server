@@ -13,7 +13,7 @@ const checkPassword = async (req , res) => {
             return res.status(400).send({message : "Plz check password !" , error : true}) ;
         }
         else{
-            const token = jwt.sign({id : user?._id , email : user?.email} , process.env.JWT_SECRET_KEY , {expiresIn : '1d'}) ;
+            const token = jwt.sign({id : user?._id , email : user?.email} , process.env.JWT_SECRET_KEY , {expiresIn : '5d'}) ;
             return res.cookie('token' , token , {
                 httpOnly : true ,
                 secure : process.env.NODE_ENV === "production" ? true : false ,

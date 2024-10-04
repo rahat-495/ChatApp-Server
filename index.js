@@ -1,12 +1,11 @@
 
+const { app , server } = require('./socket/index')
+const connectDB = require('./Config/connectDB') ;
 const cookieParser = require("cookie-parser");
+const router = require('./Routes/index') ;
 const express = require("express");
 const cors = require("cors");
 const port = process.env.PORT || 5555;
-const app = express();
-
-const connectDB = require('./Config/connectDB') ;
-const router = require('./Routes/index') ;
 
 app.use(
   cors({
@@ -26,6 +25,6 @@ app.get("/", (req, res) => {
   res.send("Chat App server is running !");
 });
 
-app.listen(port, () => {
+server.listen(port, () => {
   console.log(`the server is running at port ${port}`);
 });

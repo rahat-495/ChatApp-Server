@@ -6,7 +6,7 @@ const searchUser = async (req , res) => {
         
         const {search} = req.body ;
         const query = new RegExp(search , "i" , "g") ;
-        const user = await UserModel.find({ "$or" : [ { name : query} , { email : query } ]}) ;
+        const user = await UserModel.find({ "$or" : [ { name : query} , { email : query } ]}).select('-password') ;
         return res.send(user)
         
     } catch (error) {
