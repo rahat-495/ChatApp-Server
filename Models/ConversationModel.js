@@ -14,10 +14,15 @@ const messageSchema = new mongoose.Schema({
         type : String ,
         default : '' ,
     },
-    videoUrl : {
-        type : Boolean ,
-        default : false ,
+    seen : {
+        type : Boolean,
+        default : false
     },
+    msgByUserId : {
+        type : mongoose.Schema.ObjectId,
+        required : true,
+        ref : 'User'
+    }
 } , {
     timestamps : true ,
 })
